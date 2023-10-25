@@ -8,6 +8,7 @@ const showMore = document.getElementById("show-more");
 let search_data = "";
 
 Search_btn.addEventListener('click', function(event){
+    img_box.textContent='';
     searchForImages();
 })
 
@@ -16,8 +17,6 @@ let page = 1;
 const searchForImages = async () => {
     search_data = Search.value;
     console.log(search_data);
-
-    img_box.textContent='';
 
     const res = await fetch(`https://api.unsplash.com/search/photos?page=${page}&query=${search_data}&client_id=${accessKey}`);
     const data = await res.json();
